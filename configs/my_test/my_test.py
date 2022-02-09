@@ -1,8 +1,7 @@
 # model settings
 model = dict(
-    type='RPN',
+    type='my_RPN',
     backbone=dict(
-        # type='ResNet',
         type='my_resnet',
         depth=50,
         num_stages=4,

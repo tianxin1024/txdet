@@ -18,6 +18,7 @@ from mmdet.datasets import build_dataset
 from mmdet.models import build_detector
 from mmdet.utils import collect_env, get_root_logger
 
+from models.my_resnet import my_resnet
 
 
 def parse_args():
