@@ -1,12 +1,11 @@
 import copy
+import torch
 from os.path import dirname, exists, join, abspath
 
 import sys
 sys.path.append("/home/tianxin/2022/myself/txdet/")
 
-print(sys.path)
-
-from models import my_resnet
+from models import *
 
 import ipdb
 
@@ -48,14 +47,19 @@ def _get_detector_cfg(fname):
 
 
 def test_models_forward():
-    model = _get_detector_cfg("/home/tianxin/2022/myself/txdet/configs/my_rpn/my_rpn_r50_fpn_coco.py")
-    # ipdb.set_trace()
+    model = _get_detector_cfg("/home/tianxin/2022/myself/txdet/configs/my_yolox/my_yolox.py")
+    # model = _get_detector_cfg("/home/tianxin/2022/myself/txdet/configs/yolox/yolox_s_8x8_300e_coco.py")
+    # model = _get_detector_cfg("/home/tianxin/2022/myself/txdet/configs/my_rpn/my_rpn_r50_fpn_coco.py")
     print(model)
 
     from mmdet.models import build_detector
     detector = build_detector(model)
-
+    # ipdb.set_trace()
     print(detector)
+
+    # input_shape = (1, 3, 640, 640)
+    # input = torch.randn(1, 3, 640, 640)
+    # output = detector(input)
 
 
 if __name__ == "__main__":
